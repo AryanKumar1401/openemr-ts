@@ -1,0 +1,39 @@
+name: JS Unit Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+
+  js_unit_test:
+    runs-on: ubuntu-24.04
+    name: JS Unit Test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install npm package
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: npm install
+        run: |
+          failTest=false
+          npm install || failTest=true
+          if $failTest; then
+            exit 1
+          fi
+
+      - name: Run Unit Tests
+        run: |
+          failTest=false
+          npm run test:js || failTest=true
+          if $failTest; then
+            exit 1
+          fi

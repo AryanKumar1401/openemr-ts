@@ -1,0 +1,35 @@
+# logs
+/logs
+
+# environment vars
+.env
+
+# vendor and assets
+node_modules
+/vendor/*
+/public/assets/*
+/public/themes/*
+!/public/assets/modified
+/.docs/.out/*
+
+# ccda service build
+ccdaservice/node_modules
+
+# dev editor configs
+/.idea/*
+/.vscode/*
+/.vscode-oss/*
+/nbproject/*
+.DS_Store
+.buildpath
+.project
+.settings
+/.cargo/*
+/.cursor/*
+.cursor
+
+# testing
+.phpunit.result.cache
+coverage/js-unit
+
+.cursor/extensions/anysphere.pyright-1.1.327-universal/dist/typeshed-fallback/stubs/openpyxl/openpyxl/utils/inference.pyi
